@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Brand Validation</title>
+    <style>
+        .error {
+            color: red;
+        }
+        .valid {
+            color: green;
+        }
+    </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
-
 <body>
-    <div class="container">
-        <label for="typeInput">Type:</label>
-        <input type="text" id="typeInput" class="form-control" oninput="validateType()">
-        <div id="typeValidationMsg"></div>
-
-        <label for="brandInput">Brand:</label>
-        <input type="text" id="brandInput" class="form-control" oninput="validateBrand()">
-        <div id="brandValidationMsg"></div>
-    </div>
+    <form id="brandForm">
+        <label for="type">Type:</label>
+        <input type="text" id="type" name="type">
+        <div id="typeValidationMessage" class="error"></div>
+        
+        <label for="brand">Brand:</label>
+        <input type="text" id="brand" name="brand">
+        <div id="brandValidationMessage" class="error"></div>
+        
+        <button type="submit">Check Brand</button>
+    </form>
+    
+    <div id="serverResponse"></div>
 
     <script src="task04.js"></script>
 </body>
-
 </html>
