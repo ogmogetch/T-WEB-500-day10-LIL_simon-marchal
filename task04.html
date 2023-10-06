@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Brand Validation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <label for="typeInput">Type:</label>
+        <input type="text" id="typeInput" class="form-control" oninput="validateType()">
+        <div id="typeValidationMsg"></div>
+
+        <label for="brandInput">Brand:</label>
+        <input type="text" id="brandInput" class="form-control" oninput="validateBrand()">
+        <div id="brandValidationMsg"></div>
+    </div>
+
+    <script src="task04.js"></script>
+</body>
+
+</html>

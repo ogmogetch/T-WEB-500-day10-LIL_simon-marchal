@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Country Table</title>
+</head>
+
+<body>
+    <button onclick="loadCountries()">Load Countries</button>
+    <table id="countryTable" border="1">
+        <thead>
+            <tr>
+                <th>Country Code</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        function loadCountries() {
+            fetch('countries.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (typeof data !== 'object') {
+                        throw new Error('Invalid data format: Expected an object');
+                    }
+
+                    const countryTable = document.getElementById('countryTable').getElementsByTagName('tbody')[0];
+                    countryTable.innerHTML = '';
+
+                    for (const countryCode in data) {
+                        const countryName = data[countryCode];
+
+                        const row = countryTable.insertRow();
+                        const cell1 = row.insertCell(0);
+                        const cell2 = row.insertCell(1);
+
+                        cell1.textContent = countryCode;
+                        cell2.textContent = countryName;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while loading countries.');
+                });
+        }
+    </script>
+</body>
+
+</html>
